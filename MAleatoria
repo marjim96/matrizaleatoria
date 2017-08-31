@@ -1,0 +1,64 @@
+cuadrado mAleatoria1;
+cuadrado mAleatoria2;
+
+void setup(){
+size(500,500);
+mAleatoria1 = new cuadrado (5,125,200,100,0,0);
+mAleatoria2 = new cuadrado (5,125,200,300,0,0); 
+}
+
+void draw(){
+  background(255);
+  mAleatoria1.display();
+  mAleatoria2.display();
+  mAleatoria1.mouse();
+  mAleatoria2.mouse();
+  println(mouseX);
+}
+
+class cuadrado
+{
+  int x;
+  int y;
+  int t;
+  int u;
+  int i;
+  int j;
+  
+  cuadrado (int t_, int u_, int x_, int y_, int i_, int j_)
+{
+    t = t_;
+    u = u_;
+    x = x_;
+    y = y_;
+    i = i_;
+    j = j_;
+
+}
+ void display()
+ {
+  noStroke();
+for (i = 0; i<u; i+=t){
+for (j = 0; j<u; j+=t){
+fill (random(255));
+rect (x+i,y+j,t,t);
+}
+}
+ }
+ 
+ void mouse()
+ {
+   if ((mouseX >= x & mouseX <= x+x) & (mouseY >= y & mouseY <= y+x)) {
+t= 10;
+}
+else {
+t= 5;
+}
+if ((mouseX >= x & mouseX <= x+x) & (mouseY >= y & mouseY <= y+x)) {
+t = 10;
+}
+else {
+t= 5;
+}
+ }
+}
